@@ -44,11 +44,11 @@ int wheel_ends[] = { WHEEL_ONE_END,
 
 int wave_index = 0;
 
-setWheel(int index, int begin, int end);
+void setWheel(int index, int begin, int end);
 void setup() 
 {
   LEDS.addLeds<OCTOWS2811>(leds, NUM_LEDS_PER_STRIP);
-  LEDS.setBrightness(GLOBAL_BRIGHTNESS);
+  LEDS.setBrightness(192);
 
   // calculate wave values
   for(int i=0; i<WAVE_SIZE; ++i)
@@ -58,6 +58,7 @@ void setup()
 
 uint32_t index_timer = 0;
 char buffer[BUFFER_S];
+int some_int = 0;
 void loop() 
 {
   // do some serial stuff
@@ -87,7 +88,7 @@ void loop()
   LEDS.show();
 }
 
-setWheel(int index, int begin, int end)
+void setWheel(int index, int begin, int end)
 {
   // try with this, should be close to what we want
   for( int i=begin; i<end; ++i)
